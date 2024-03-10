@@ -1,0 +1,14 @@
+<div >
+    <a class="company-item" [routerLink]="['/company', id]">
+        <img class="logo" src='{{ logo }}' alt="logo">
+        <div class="info">
+            <h3 class="name">
+                {{ name }}
+            </h3>
+            <div class="details">
+                <p>Industry: {{ industry }}</p>
+                <p>Type: {{ type }}</p>
+            </div>
+        </div>
+    </a>
+</div>

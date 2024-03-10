@@ -1,0 +1,48 @@
+<div>
+    <app-company-filter />
+    @for (company of companies; track $index) {
+        <app-company-item
+            [logo]="company.logo"
+            [name]="company.business_name"
+            [type]="company.type"
+            [industry]="company.industry"
+            [id]="company.id"
+        />
+    }
+</div>
+
+<!--
+id: 3927, uid: "ca5cec0d-715a-44a6-a350-0800563e6c63", business_name: "Nitzsche-Moore",
+​​
+bs_company_statement: "expedite dot-com initiatives"
+​​
+business_name: "Nitzsche-Moore"
+​​
+buzzword: "incremental"
+​​
+catch_phrase: "Horizontal empowering concept"
+​​
+duns_number: "06-959-5972"
+​​
+employee_identification_number: "56-9201603"
+​​
+full_address: "Suite 374 237 Watsica Squares, Lake Jakeburgh, IL 51722-6327"
+​​
+id: 3927
+​​
+industry: "Wireless"
+​​
+latitude: 23.527720658483304
+​​
+logo: "https://pigment.github.io/fake-logos/logos/medium/color/12.png"
+​​
+longitude: -101.19764606855391
+​​
+phone_number: "+51 630.193.2251"
+​​
+suffix: "LLC"
+​​
+type: "Partnership"
+​​
+uid: "ca5cec0d-715a-44a6-a350-0800563e6c63"
+-->

@@ -1,0 +1,22 @@
+.company-item {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    border: 1px solid black;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: black;
+}
+.logo {
+    width: 20rem;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+.details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

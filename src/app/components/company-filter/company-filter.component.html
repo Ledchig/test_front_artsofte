@@ -1,0 +1,9 @@
+<div class="filter">
+    <form [formGroup]="filterForm" >
+        <input type="text" placeholder="Company name" id="company-name" fromControl="companyName" (input)="filterByName()"  />
+        <input type="checkbox" name="company-type" id="company-type" fromControl="companyType" (change)="filterbyType()" />
+        <label for="company-type">Company type</label>
+        <input type="checkbox" name="company-industry" id="company-industry" fromControl="companyIndustry" (change)="filterByIndustry()" />
+        <label for="company-industry">Company industry</label>
+    </form>
+</div>
