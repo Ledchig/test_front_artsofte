@@ -19,20 +19,24 @@ import { ICompany } from '../../interfaces/ICompany';
 
 @Injectable({providedIn: 'root'})
 export class CompanyListComponent implements OnInit {
-  companies: any = [];
-  
-  constructor(private http: HttpClient, private CompaniesStoreService: CompaniesStoreService) {
+  constructor(private http: HttpClient, private store: CompaniesStoreService) {
   }
+
+  companies: ICompany[] = [];
+  
   
   fetchData() {
     this.http.get('https://random-data-api.com/api/company/random_company?size=100').subscribe((data) => {
-      this.CompaniesStoreService.addCompanies(data);
-      this.companies = this.CompaniesStoreService.getCompanies();
+      this.store.setCompanies(data);
+      this.store.toogleFetched();
     });
   }
 
-  ngOnInit(): void {
-    this.companies = this.CompaniesStoreService.getCompanies()
+  ngOnInit() {
+    this.store.companiesForView$.subscribe(() => {
+      this.companies = this.store.getCompanies();
+      console.log(this.companies);
+    })
     if (this.companies.length === 0) {
       this.fetchData();
     }

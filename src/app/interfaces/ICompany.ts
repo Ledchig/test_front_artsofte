@@ -1,6 +1,6 @@
 export interface ICompany {
     logo: string
-    name: string
+    business_name: string
     type: string
     industry: string
     id: string
