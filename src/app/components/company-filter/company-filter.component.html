@@ -1,14 +1,14 @@
 <div class="filter">
     <form [formGroup]="filterForm" >
-        <input type="text" placeholder="Company name" id="company-name" formControlName="companyName" (input)="filterByName()"  />
-        <select type="select-multiple" name="company-type" id="company-type" formControlName="companyType" (change)="filterbyType()" >
+        <input type="text" placeholder="Company name" id="company-name" formControlName="companyName" (input)="handlerForm()"  />
+        <select type="select-multiple" name="company-type" id="company-type" formControlName="companyType" (change)="handlerForm()" >
             <option selected="">Choose type of company</option>
             @for (type of types; track $index) {
                 <option [value]="type">{{type}}</option>
             }
         </select>
         <label for="company-type">Company type</label>
-        <select type="select" name="company-industry" id="company-industry" formControlName="companyIndustry" (change)="filterByIndustry()" >
+        <select type="select" name="company-industry" id="company-industry" formControlName="companyIndustry" (change)="handlerForm()" >
             <option selected>Choose industry of company</option>
             @for (industry of industries; track $index) {
                 <option [value]="industry">{{industry}}</option>

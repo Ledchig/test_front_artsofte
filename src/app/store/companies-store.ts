@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { ICompany } from "../interfaces/ICompany";
 import * as _ from "lodash";
+import { AbstractControl } from "@angular/forms";
 
 @Injectable({providedIn: 'root'})
 export class CompaniesStoreService {
@@ -29,29 +30,20 @@ export class CompaniesStoreService {
         this.companiesForView = this._companies.getValue();
     }
 
-    getFilteredCompaniesByType(type: string | boolean) {
-        if (type === 'Choose type of company') {
-            this.companiesForView = this._companies.getValue();
-            return;
+    filterCompanies(name: AbstractControl | null, type: AbstractControl | null, industry: AbstractControl | null) {
+        this.companiesForView = this._companies.getValue();
+        if (name && name.value.trim() !== '') {
+            this.companiesForView = this.getCompanies().filter(company =>
+                company.business_name.slice(0, name.value.length).toLocaleLowerCase() === name.value.toLocaleLowerCase()
+            );
+        } if (type && type.value !== 'Choose type of company' && type.value.trim() !== '') {
+            this.companiesForView = this.getCompanies().filter(company => company.type.trim() === type.value);
+        } if (industry && industry.value !== 'Choose industry of company' && industry.value !== '') {
+            this.companiesForView = this.getCompanies().filter(company => company.industry === industry.value);
         }
-        this.companiesForView = this.getCompanies().filter(company => company.type === type);
+
     }
-    getFilteredCompaniesByName(name: string) {
-        if (name.trim() === '') {
-            this.companiesForView = this._companies.getValue();
-            return;
-        }
-        this.companiesForView = this.getCompanies().filter(company =>
-            company.business_name.slice(0, name.length).toLocaleLowerCase() === name.toLocaleLowerCase()
-        );
-    }
-    getFilteredCompaniesByIndustry(industry: string | boolean) {
-        if (industry === 'Choose industry of company') {
-            this.companiesForView = this._companies.getValue();
-            return;
-        }
-        this.companiesForView = this.getCompanies().filter(company => company.industry === industry);
-    }
+
     setCompanies(companies: any) {
         this.companies = companies;
         this.companiesForView = companies;

@@ -18,8 +18,8 @@ export class CompanyFilterComponent {
 
   filterForm = new FormGroup({
     companyName: new FormControl(''),
-    companyType: new FormControl(false),
-    companyIndustry: new FormControl(false),
+    companyType: new FormControl(''),
+    companyIndustry: new FormControl(''),
 
   })
 
@@ -31,23 +31,11 @@ export class CompanyFilterComponent {
       this.industries = this.store.getIndustries();
     })
   }
-
-  filterByName() {
+  handlerForm() {
     const formControlName = this.filterForm.get('companyName');
-    if (formControlName !== null && formControlName.value !== null) {
-      this.store.getFilteredCompaniesByName(formControlName.value);
-    }
-  }
-  filterbyType() {
     const formControlType = this.filterForm.get('companyType');
-    if (formControlType !== null && formControlType.value !== null) {
-      this.store.getFilteredCompaniesByType(formControlType.value);
-    }
-  }
-  filterByIndustry() {
     const formControlIndustry = this.filterForm.get('companyIndustry');
-    if (formControlIndustry !== null && formControlIndustry.value !== null) {
-      this.store.getFilteredCompaniesByIndustry(formControlIndustry.value);
-    }
+
+    this.store.filterCompanies(formControlName, formControlType, formControlIndustry);
   }
 }
