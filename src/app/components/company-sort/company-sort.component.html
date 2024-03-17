@@ -1,1 +1,15 @@
-<p>company-sort works!</p>
+<div class="sort">
+    <h3 for="sort-select">Sort</h3>
+    <select id="sort-select" [formControl]="sortParam" (change)="handleSelect()">
+        <option value=""></option>
+        <option value="name">
+            Company name
+        </option>
+        <option value="type">
+            Company type
+        </option>
+        <option value="industry">
+            Company industry
+        </option>
+    </select>
+</div>

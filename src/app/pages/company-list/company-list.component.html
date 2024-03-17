@@ -1,5 +1,6 @@
 <div>
     <app-company-filter />
+    <app-company-sort />
     @for (company of companies; track $index) {
         <app-company-item
             [logo]="company.logo"

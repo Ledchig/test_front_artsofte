@@ -4,6 +4,7 @@ import { CompanyItemComponent } from "../../components/company-item/company-item
 import { CompanyFilterComponent } from "../../components/company-filter/company-filter.component"
 import { CompaniesStoreService } from '../../store/companies-store';
 import { ICompany } from '../../interfaces/ICompany';
+import { CompanySortComponent } from "../../components/company-sort/company-sort.component";
 
 @Component({
     selector: 'app-company-list',
@@ -11,9 +12,10 @@ import { ICompany } from '../../interfaces/ICompany';
     templateUrl: './company-list.component.html',
     styleUrl: './company-list.component.scss',
     imports: [
-      HttpClientModule,
-      CompanyItemComponent,
-      CompanyFilterComponent
+        HttpClientModule,
+        CompanyItemComponent,
+        CompanyFilterComponent,
+        CompanySortComponent
     ]
 })
 
@@ -35,7 +37,6 @@ export class CompanyListComponent implements OnInit {
   ngOnInit() {
     this.store.companiesForView$.subscribe(() => {
       this.companies = this.store.getCompanies();
-      console.log(this.companies);
     })
     if (this.companies.length === 0) {
       this.fetchData();

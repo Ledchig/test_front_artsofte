@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CompaniesStoreService } from '../../store/companies-store';
 
 @Component({
   selector: 'app-company-sort',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './company-sort.component.html',
   styleUrl: './company-sort.component.scss'
 })
-export class CompanySortComponent {
 
+@Injectable({providedIn: 'root'})
+export class CompanySortComponent {
+  constructor(private store: CompaniesStoreService) {
+
+  }
+
+  sortParam = new FormControl('');
+
+  handleSelect() {
+    const param = this.sortParam.value;
+    this.store.setSortParam(param)
+    this.store.sort();
+  }
 }

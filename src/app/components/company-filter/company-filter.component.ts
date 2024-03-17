@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CompaniesStoreService } from '../../store/companies-store';
 
 @Component({
@@ -36,6 +36,11 @@ export class CompanyFilterComponent {
     const formControlType = this.filterForm.get('companyType');
     const formControlIndustry = this.filterForm.get('companyIndustry');
 
-    this.store.filterCompanies(formControlName, formControlType, formControlIndustry);
+    this.store.setFilterParams({
+      name: formControlName,
+      type: formControlType,
+      industry: formControlIndustry,
+    });
+    this.store.filterCompanies();
   }
 }
