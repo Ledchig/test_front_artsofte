@@ -42,6 +42,10 @@ export class CompaniesStoreService {
         return this._companiesForView.getValue();
     }
 
+    getCompanyById(id: string | null) {
+        return this.getCompanies().find(company => Number(company.id) === Number(id));
+    }
+
     setFilterParams(params: IFilterParams) {
         this.filterParams = params;
     }

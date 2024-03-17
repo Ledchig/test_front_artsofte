@@ -1,15 +1,18 @@
-<div>
-    <app-company-filter />
-    <app-company-sort />
-    @for (company of companies; track $index) {
-        <app-company-item
-            [logo]="company.logo"
-            [name]="company.business_name"
-            [type]="company.type"
-            [industry]="company.industry"
-            [id]="company.id"
-        />
-    }
+<div class="company-list">
+    <div>
+        <div class="filter">
+            <app-company-filter />
+            <app-company-sort />
+        </div>
+        <div></div>
+
+    </div>
+    <div>
+        @for (company of companies; track $index) {
+        <app-company-item [logo]="company.logo" [name]="company.business_name" [type]="company.type"
+            [industry]="company.industry" [id]="company.id" />
+        }
+    </div>
 </div>
 
 <!--

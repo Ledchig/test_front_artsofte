@@ -5,6 +5,6 @@ export interface ICompany {
     industry: string
     id: string
     catch_phrase: string
-    contacts: string
-    adress: string
+    phone_number: string
+    full_address: string
 }

@@ -1,5 +1,4 @@
 .layout {
-    max-width: 1024px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -7,4 +6,9 @@
     align-items: center;
     padding: 1rem;
     margin: auto;
+}
+@media screen and (min-width: 1024px) {
+    .layout {
+        max-width: 1024px;
+    }
 }

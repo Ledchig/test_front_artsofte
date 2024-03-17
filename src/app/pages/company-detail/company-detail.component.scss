@@ -1,0 +1,42 @@
+.company-details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-details-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    > img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+.company-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .company-details {
+        flex-direction: row;
+    }
+    .company-details-logo {
+        padding-right: 1rem;
+        border-bottom: 0;
+        border-right: 1px;
+        border-right-style: solid;
+        max-width: 45%;
+    }
+    .company-details-info {
+        padding-left: 1rem;
+    }
+}

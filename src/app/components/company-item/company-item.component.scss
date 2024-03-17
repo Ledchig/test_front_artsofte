@@ -9,9 +9,14 @@
     color: black;
 }
 .logo {
-    width: 20rem;
+    display: flex;
+    max-width: 45%;
+    align-self: center;
+    width: fit-content;
+    height: fit-content;
 }
 .info {
+    justify-content: center;
     display: flex;
     flex-direction: column;
 }
@@ -19,4 +24,16 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+    .company-item {
+        flex-direction: column;
+    }
+    .logo {
+        max-width: 100%;
+    }
+    .info {
+        flex-direction: column;
+    }
+    
 }

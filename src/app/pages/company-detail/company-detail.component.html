@@ -1,13 +1,12 @@
 <div class="company-details">
-    <div class="company-details-header">
-        <img src="" alt="logo" />
-        <h2>Company name</h2>
+    <div class="company-details-logo">
+        <img [src]="company?.logo" alt="logo" />
     </div>
-    <div class="company-details-body">
-        <p>Industry: </p>
-        <p>Type: </p>
-        <p>Catch_phrase</p>
-        <p>Contacts</p>
-        <p>Adress</p>
+    <div class="company-details-info">
+        <h2>{{ company?.business_name }}</h2>
+        <p>Industry: {{ company?.industry }}</p>
+        <p>{{ company?.catch_phrase }}</p>
+        <p>Contacts: {{ company?.phone_number }}</p>
+        <p>Adress: {{ company?.full_address }}</p>
     </div>
 </div>
